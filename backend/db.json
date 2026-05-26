@@ -1,0 +1,215 @@
+{
+  "tenders": [
+    {
+      "id": "TND-2026-001",
+      "category": "Chemicals",
+      "name": "Titanium Dioxide (Rutiled Grade)",
+      "description": "High opacity pigment for premium paints. Must comply with ISO 591-1 quality standards.",
+      "quantity": 12000,
+      "unit": "KG",
+      "requiredDate": "2026-07-15",
+      "basePrice": 280,
+      "lowestBid": 265,
+      "lowestBidder": "Aura Fine Chem",
+      "closingSeconds": 43200,
+      "status": "Open"
+    },
+    {
+      "id": "TND-2026-002",
+      "category": "Chemicals",
+      "name": "Acrylic Emulsion Co-polymer",
+      "description": "Pure acrylic latex binder with 50% solids content for weather-proof exterior coatings.",
+      "quantity": 25000,
+      "unit": "KG",
+      "requiredDate": "2026-06-30",
+      "basePrice": 145,
+      "lowestBid": 140,
+      "lowestBidder": "Apex Emulsion Ltd",
+      "closingSeconds": 86400,
+      "status": "Open"
+    },
+    {
+      "id": "TND-2026-003",
+      "category": "Pigments",
+      "name": "Phthalocyanine Blue (Beta Mod)",
+      "description": "Highly dispersion-resistant blue organic pigment for solvent-based paints.",
+      "quantity": 5000,
+      "unit": "KG",
+      "requiredDate": "2026-08-01",
+      "basePrice": 620,
+      "lowestBid": 595,
+      "lowestBidder": "Kroma Color Corp",
+      "closingSeconds": 172800,
+      "status": "Open"
+    },
+    {
+      "id": "TND-2026-004",
+      "category": "Packaging Materials",
+      "name": "20L HDPE Industrial Paint Pails",
+      "description": "Virgin HDPE injection molded plastic pails with metal handles and airtight lids. Custom printed.",
+      "quantity": 15000,
+      "unit": "PCS",
+      "requiredDate": "2026-07-10",
+      "basePrice": 85,
+      "lowestBid": 82,
+      "lowestBidder": "Elite Plastics Inc",
+      "closingSeconds": 15000,
+      "status": "Open"
+    },
+    {
+      "id": "TND-2026-005",
+      "category": "Industrial Solvents",
+      "name": "Butyl Acetate (99.5% Purity)",
+      "description": "High-purity organic solvent suitable for lacquer formulations. Water content < 0.05%.",
+      "quantity": 8000,
+      "unit": "Liters",
+      "requiredDate": "2026-07-01",
+      "basePrice": 195,
+      "lowestBid": 188,
+      "lowestBidder": "Hindustan Solvents",
+      "closingSeconds": 5200,
+      "status": "Open"
+    },
+    {
+      "id": "TND-2026-006",
+      "category": "Pigments",
+      "name": "Carbon Black (Grade N330)",
+      "description": "High-reinforcing furnace black pigment for industrial coatings.",
+      "quantity": 10000,
+      "unit": "KG",
+      "requiredDate": "2026-07-22",
+      "basePrice": 110,
+      "lowestBid": 105,
+      "lowestBidder": "Kroma Color Corp",
+      "closingSeconds": 2200,
+      "status": "Open"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "SUB-401",
+      "tenderId": "TND-2026-001",
+      "vendorName": "Aura Fine Chem",
+      "companyGst": "27AAAAA1234B1Z5",
+      "price": 265,
+      "deliveryDate": "2026-07-10",
+      "fileName": "Quotation_Aura_Titanium_R2.pdf",
+      "fileSize": "1.2 MB",
+      "submittedAt": "2026-05-25 09:12",
+      "status": "Pending",
+      "remarks": "Direct factory pricing with ISO certificate attached."
+    },
+    {
+      "id": "SUB-402",
+      "tenderId": "TND-2026-001",
+      "vendorName": "Indo pigment Traders",
+      "companyGst": "27BBBBB5678C1Z6",
+      "price": 272,
+      "deliveryDate": "2026-07-12",
+      "fileName": "Indo_Pigments_TND001_Bid.pdf",
+      "fileSize": "850 KB",
+      "submittedAt": "2026-05-25 08:34",
+      "status": "Pending",
+      "remarks": "Guaranteed delivery before 12th July."
+    },
+    {
+      "id": "SUB-403",
+      "tenderId": "TND-2026-002",
+      "vendorName": "Apex Emulsion Ltd",
+      "companyGst": "27CCCCC9012D1Z7",
+      "price": 140,
+      "deliveryDate": "2026-06-25",
+      "fileName": "Apex_Emulsion_Proposal.pdf",
+      "fileSize": "2.1 MB",
+      "submittedAt": "2026-05-25 09:50",
+      "status": "Pending",
+      "remarks": "Includes sample testing clearance sheets."
+    },
+    {
+      "id": "SUB-404",
+      "tenderId": "TND-2026-004",
+      "vendorName": "Elite Plastics Inc",
+      "companyGst": "27DDDDD3456E1Z8",
+      "price": 82,
+      "deliveryDate": "2026-07-05",
+      "fileName": "Elite_Plastics_20L_Tender.pdf",
+      "fileSize": "1.7 MB",
+      "submittedAt": "2026-05-25 10:02",
+      "status": "Approved",
+      "remarks": "Custom screen printing setup included at no extra cost."
+    }
+  ],
+  "vendors": [
+    {
+      "id": "VND-1001",
+      "vendorName": "Rajiv Sharma",
+      "companyName": "Aura Fine Chem",
+      "email": "vendor@demo.com",
+      "password": "demo123",
+      "gstNumber": "27AAAAA1234B1Z5",
+      "phone": "9876543210",
+      "registeredAt": "2026-01-10T09:00:00"
+    },
+    {
+      "id": "VND-1002",
+      "vendorName": "Priya Mehta",
+      "companyName": "Apex Emulsion Ltd",
+      "email": "apex@demo.com",
+      "password": "demo123",
+      "gstNumber": "27CCCCC9012D1Z7",
+      "phone": "9123456789",
+      "registeredAt": "2026-01-15T11:00:00"
+    },
+    {
+      "id": "VND-1003",
+      "vendorName": "Ankit Jain",
+      "companyName": "Elite Plastics Inc",
+      "email": "elite@demo.com",
+      "password": "demo123",
+      "gstNumber": "27DDDDD3456E1Z8",
+      "phone": "9988776655",
+      "registeredAt": "2026-02-01T08:30:00"
+    }
+  ],
+  "hr_users": [
+    {
+      "id": "HR-001",
+      "username": "Procurement Manager",
+      "role": "hr",
+      "email": "hr@tatacolours.com",
+      "password": "hr123",
+      "department": "Procurement & Sourcing"
+    },
+    {
+      "id": "HR-002",
+      "username": "Senior Buyer",
+      "role": "hr",
+      "email": "admin@tatacolours.com",
+      "password": "admin123",
+      "department": "Supply Chain"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "title": "New Tender Published",
+      "message": "TND-2026-006: Carbon Black (N330) is now open for bidding.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 2,
+      "title": "Bid Approved",
+      "message": "Your quotation for 20L HDPE Industrial Paint Pails has been APPROVED by Procurement Team.",
+      "time": "30 mins ago",
+      "read": false
+    },
+    {
+      "id": 3,
+      "title": "Price Competitiveness Alert",
+      "message": "A competitor submitted a lower bid (\u20b9265/KG) for Titanium Dioxide.",
+      "time": "1 hour ago",
+      "read": true
+    }
+  ]
+}
