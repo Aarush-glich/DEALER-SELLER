@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tata Colours | Smart Raw Material Bidding & HR Management Portal</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Next-generation, responsive enterprise bidding and HR management portal for Tata Colours. Streamlining raw material procurement, chemicals, pigments, packaging, and solvents.">
+  
+  <!-- Google Fonts: Outfit (headings) & Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            tata: {
+              50: '#f0f6fc',
+              100: '#e1edf9',
+              200: '#bbdaf3',
+              300: '#7ebbe9',
+              400: '#399bda',
+              500: '#0066b2', // Tata Blue primary color
+              600: '#00549c', // Core brand blue
+              700: '#004785',
+              800: '#003d70',
+              900: '#00335e',
+              950: '#001b35',
+            },
+            industrial: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(0, 84, 156, 0.08)',
+            'glass-dark': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'glass-border': 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React & Babel Standalone are handled by Vite -->
+
+  <!-- Custom CSS for Scrollbars & Special Animations -->
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.5);
+    }
+
+    /* Spinning gears in industrial background */
+    @keyframes gearSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-gear-slow {
+      animation: gearSpin 20s linear infinite;
+    }
+    .animate-gear-slow-reverse {
+      animation: gearSpin 25s linear infinite reverse;
+    }
+
+    /* Pulsing mesh gradient */
+    @keyframes pulseMesh {
+      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.15; }
+      33% { transform: scale(1.1) translate(30px, -50px); opacity: 0.25; }
+      66% { transform: scale(0.9) translate(-20px, 20px); opacity: 0.1; }
+    }
+    .animate-mesh-1 {
+      animation: pulseMesh 15s ease-in-out infinite;
+    }
+    .animate-mesh-2 {
+      animation: pulseMesh 18s ease-in-out infinite alternate;
+    }
+
+    /* Floating particles */
+    @keyframes floatParticle {
+      0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(-10vh) translateX(100px); opacity: 0; }
+    }
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      background: rgba(57, 155, 218, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    /* Toast slide-in/out */
+    @keyframes slideIn {
+      0% { transform: translateY(100%) translateX(-50%); opacity: 0; }
+      100% { transform: translateY(0) translateX(-50%); opacity: 1; }
+    }
+    .animate-toast {
+      animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-C-RuVt1n.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-800 dark:text-slate-200 transition-colors duration-300 min-h-screen relative overflow-x-hidden">
+
+  <!-- Root React Mount Element -->
+  <div id="root"></div>
+
+  <!-- Main Application Entry point -->
+
+</body>
+</html>
