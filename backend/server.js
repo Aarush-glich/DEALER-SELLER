@@ -1,5 +1,5 @@
 /**
- * Tata Colours Procurement Portal — Node.js / Express Backend
+ * Tata Steel Colors Procurement Portal — Node.js / Express Backend
  * ============================================================
  * Install dependencies first:
  *   npm install express cors
@@ -10,19 +10,26 @@
  * Mirrors the same API contract as server.py
  */
 
-const express    = require('express');
-const cors       = require('cors');
-const fs         = require('fs');
-const path       = require('path');
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
-const PORT    = 3001;
+const PORT    = 5000;
 const DB_FILE = path.join(__dirname, 'db.json');
 
 const BOT_VENDORS = [
-  'Nippon Alloys', 'Swaraj Polymers', 'Alpha Pigments Corp',
-  'Zenith Chemicals', 'Hindustan Solvents', 'Indo pigment Traders'
+  'Western Coil Coaters', 'Maharashtra Steel Service Centre', 'Surya Fasteners',
+  'Precision Rollform Components', 'Apex Structural Systems', 'SolarMount Fabricators'
 ];
+
+const DEFAULT_TENDER_CATEGORY = 'Coated Steel';
+const DEFAULT_TENDER_UNIT = 'MT';
 
 // ─── DATABASE HELPERS ─────────────────────────────────────────────────────────
 function loadDB()      { return JSON.parse(fs.readFileSync(DB_FILE, 'utf-8')); }
@@ -64,11 +71,11 @@ app.post('/api/tenders', (req, res) => {
   const id   = `TND-${year}-${String(db.tenders.length + 1).padStart(3, '0')}`;
   const t = {
     id,
-    category:      req.body.category || 'General',
+    category:      req.body.category || DEFAULT_TENDER_CATEGORY,
     name:          req.body.name || '',
     description:   req.body.description || '',
     quantity:      Number(req.body.quantity) || 0,
-    unit:          req.body.unit || 'KG',
+    unit:          req.body.unit || DEFAULT_TENDER_UNIT,
     requiredDate:  req.body.requiredDate || '',
     basePrice:     Number(req.body.basePrice) || 0,
     lowestBid:     Number(req.body.basePrice) || 0,
@@ -116,7 +123,7 @@ app.post('/api/submissions', (req, res) => {
     fileSize:    req.body.fileSize    || '1.0 MB',
     submittedAt: now,
     status:      'Pending',
-    remarks:     req.body.remarks || 'Bid submitted via Tata Colours Vendor Panel.'
+    remarks:     req.body.remarks || 'Bid submitted via Tata Steel Colors Vendor Sourcing Panel.'
   };
   db.submissions.unshift(sub);
 
@@ -132,7 +139,7 @@ app.post('/api/submissions', (req, res) => {
   db.notifications.unshift({
     id:      Date.now(),
     title:   'New Bid Received',
-    message: `${sub.vendorName} placed ₹${sub.price} on ${sub.tenderId}.`,
+    message: `${sub.vendorName} placed INR ${sub.price} on ${sub.tenderId}.`,
     time:    'Just now',
     read:    false
   });
@@ -169,7 +176,7 @@ app.post('/api/auth/login', (req, res) => {
     const { password: _, ...safe } = user;
     res.json({ success: true, user: safe });
   } else {
-    res.status(401).json({ success: false, error: 'Invalid email or password' });
+    res.json({ success: false, error: 'Invalid email or password' });
   }
 });
 
@@ -240,7 +247,7 @@ function runSimulation() {
               fileSize:    '1.1 MB',
               submittedAt: new Date().toISOString().replace('T',' ').slice(0,16),
               status:      'Pending',
-              remarks:     'Competitive quote via auto-tender gateway.'
+              remarks:     'Competitive quote via Tata Steel Colors auto-tender gateway.'
             });
             db.submissions = db.submissions.slice(0, 200);
 
@@ -248,7 +255,7 @@ function runSimulation() {
             db.notifications.unshift({
               id:      Date.now(),
               title:   'Competitor Bid Alert',
-              message: `${bot} placed ₹${newPrice}/${target.unit} on ${target.name}.`,
+              message: `${bot} placed INR ${newPrice}/${target.unit} on ${target.name}.`,
               time:    'Just now',
               read:    false
             });
@@ -268,16 +275,15 @@ function runSimulation() {
 // ─── START ────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`
-  ╔══════════════════════════════════════════════════╗
-  ║   🏭  Tata Colours Procurement — API Server      ║
-  ╠══════════════════════════════════════════════════╣
-  ║  API  →  http://localhost:${PORT}/api               ║
-  ║  App  →  http://localhost:8000                   ║
-  ╠══════════════════════════════════════════════════╣
-  ║  Demo Vendor  :  vendor@demo.com / demo123       ║
-  ║  Demo HR      :  hr@tatacolours.com / hr123      ║
-  ╚══════════════════════════════════════════════════╝
+  ============================================================
+   Tata Steel Colors Procurement API Server
+  ============================================================
+   API                 : http://localhost:${PORT}/api
+   App                 : http://localhost:8000
+   Demo Vendor         : vendor@demo.com / demo123
+   Demo Sourcing Desk  : sourcing@tatasteelcolors.com / hr123
+  ============================================================
   `);
   runSimulation();
-  console.log('  ✅  Simulation engine started\n');
+  console.log('  Simulation engine started\n');
 });

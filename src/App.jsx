@@ -1,6 +1,15 @@
-const API_BASE = 'http://localhost:3001/api';
+import React, { useState, useEffect } from 'react';
+import LandingPage from './components/LandingPage.jsx';
+import AboutPage from './components/AboutPage.jsx';
+import AuthPortal from './components/AuthPortal.jsx';
+import VendorDashboard from './components/VendorDashboard.jsx';
+import HRDashboard from './components/HRDashboard.jsx';
+import BidDetailsPage from './components/BidDetailsPage.jsx';
+import ContactPage from './components/ContactPage.jsx';
+import Footer from './components/Footer.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 
-const { useState, useEffect, useRef, useMemo } = React;
+const API_BASE = 'http://localhost:5000/api';
 
 // ==========================================
 // INITIAL DUMMY DATABASE STATE
@@ -8,86 +17,86 @@ const { useState, useEffect, useRef, useMemo } = React;
 const INITIAL_TENDERS = [
   {
     id: 'TND-2026-001',
-    category: 'Chemicals',
-    name: 'Titanium Dioxide (Rutiled Grade)',
-    description: 'High opacity pigment for premium paints. Must comply with ISO 591-1 quality standards.',
-    quantity: 12000,
-    unit: 'KG',
+    category: 'Coated Steel',
+    name: 'AZ150 Al-Zn Coated Steel Coils',
+    description: 'ZINCALUME grade aluminium-zinc alloy coated coils for roof and wall cladding production.',
+    quantity: 1200,
+    unit: 'MT',
     requiredDate: '2026-07-15',
-    basePrice: 280, // in INR per KG
-    lowestBid: 265,
-    lowestBidder: 'Aura Fine Chem',
-    closingSeconds: 43200, // 12 hours
+    basePrice: 86500,
+    lowestBid: 85200,
+    lowestBidder: 'Maharashtra Steel Service Centre',
+    closingSeconds: 43200,
     status: 'Open'
   },
   {
     id: 'TND-2026-002',
-    category: 'Chemicals',
-    name: 'Acrylic Emulsion Co-polymer',
-    description: 'Pure acrylic latex binder with 50% solids content for weather-proof exterior coatings.',
-    quantity: 25000,
-    unit: 'KG',
+    category: 'Coated Steel',
+    name: 'Pre-Painted COLORBOND Coil Stock',
+    description: 'Durable colour-coated Al-Zn steel feedstock for premium roofing and wall cladding applications.',
+    quantity: 850,
+    unit: 'MT',
     requiredDate: '2026-06-30',
-    basePrice: 145,
-    lowestBid: 140,
-    lowestBidder: 'Apex Emulsion Ltd',
-    closingSeconds: 86400, // 24 hours
+    basePrice: 96500,
+    lowestBid: 94800,
+    lowestBidder: 'Western Coil Coaters',
+    closingSeconds: 86400,
     status: 'Open'
   },
   {
     id: 'TND-2026-003',
-    category: 'Pigments',
-    name: 'Phthalocyanine Blue (Beta Mod)',
-    description: 'Highly dispersion-resistant blue organic pigment for solvent-based paints.',
-    quantity: 5000,
-    unit: 'KG',
+    category: 'Building Products',
+    name: 'High Tensile Steel for LYSAGHT Purlins',
+    description: 'Cold rolled high tensile sections for purlins, girts, decking systems, and industrial buildings.',
+    quantity: 620,
+    unit: 'MT',
     requiredDate: '2026-08-01',
-    basePrice: 620,
-    lowestBid: 595,
-    lowestBidder: 'Kroma Color Corp',
-    closingSeconds: 172800, // 48 hours
+    basePrice: 74200,
+    lowestBid: 73100,
+    lowestBidder: 'Precision Rollform Components',
+    closingSeconds: 172800,
     status: 'Open'
   },
   {
     id: 'TND-2026-004',
-    category: 'Packaging Materials',
-    name: '20L HDPE Industrial Paint Pails',
-    description: 'Virgin HDPE injection molded plastic pails with metal handles and airtight lids. Custom printed.',
-    quantity: 15000,
+    category: 'Accessories',
+    name: 'DURASHINE Roofing Fastener Kits',
+    description: 'Corrosion-resistant fasteners with EPDM washers for roof and wall sheet installation.',
+    quantity: 150000,
     unit: 'PCS',
     requiredDate: '2026-07-10',
-    basePrice: 85,
-    lowestBid: 82,
-    lowestBidder: 'Elite Plastics Inc',
-    closingSeconds: 15000, // ~4 hours
+    basePrice: 18,
+    lowestBid: 16,
+    lowestBidder: 'Surya Fasteners',
+    closingSeconds: 15000,
     status: 'Open'
   },
   {
     id: 'TND-2026-005',
-    category: 'Industrial Solvents',
-    name: 'Butyl Acetate (99.5% Purity)',
-    description: 'High-purity organic solvent suitable for lacquer formulations. Water content < 0.05%.',
-    quantity: 8000,
-    unit: 'Liters',
+    category: 'Solar Mounting',
+    name: 'Zn-Al Coated Sections for ILIOS Solar Mounts',
+    description: 'Custom cold rolled coated steel sections for ground and rooftop solar module mounting systems.',
+    quantity: 420,
+    unit: 'MT',
     requiredDate: '2026-07-01',
-    basePrice: 195,
-    lowestBid: 188,
-    lowestBidder: 'Hindustan Solvents',
-    closingSeconds: 5200, // 1h 26m
+    basePrice: 78500,
+    lowestBid: 77200,
+    lowestBidder: 'SolarMount Fabricators',
+    closingSeconds: 5200,
     status: 'Open'
   },
   {
     id: 'TND-2026-006',
-    category: 'Pigments',
-    name: 'Carbon Black (Grade N330)',
-    description: 'High-reinforcing furnace black pigment for industrial coatings.',
-    quantity: 10000,
-    unit: 'KG',
+    category: 'Pre-Engineered Buildings',
+    name: 'ECOBUILD Structural Steel Plate Lots',
+    description: 'Certified structural steel lots for pre-engineered industrial and commercial building systems.',
+    quantity: 540,
+    unit: 'MT',
     requiredDate: '2026-07-22',
-    basePrice: 110,
-    lowestBid: 105,
-    lowestBidder: 'Kroma Color Corp',
-    closingSeconds: 2200, // 36m
+    basePrice: 71500,
+    lowestBid: 70400,
+    lowestBidder: 'Apex Structural Systems',
+    closingSeconds: 2200,
     status: 'Open'
   }
 ];
@@ -96,24 +105,24 @@ const INITIAL_SUBMISSIONS = [
   {
     id: 'SUB-401',
     tenderId: 'TND-2026-001',
-    vendorName: 'Aura Fine Chem',
+    vendorName: 'Maharashtra Steel Service Centre',
     companyGst: '27AAAAA1234B1Z5',
-    price: 265,
+    price: 85200,
     deliveryDate: '2026-07-10',
-    fileName: 'Quotation_Aura_Titanium_R2.pdf',
+    fileName: 'MSSC_ZINCALUME_AZ150_Quote.pdf',
     fileSize: '1.2 MB',
     submittedAt: '2026-05-25 09:12',
     status: 'Pending',
-    remarks: 'Direct factory pricing with ISO certificate attached.'
+    remarks: 'Includes coil test certificates and dispatch plan.'
   },
   {
     id: 'SUB-402',
     tenderId: 'TND-2026-001',
-    vendorName: 'Indo pigment Traders',
+    vendorName: 'Western Coil Coaters',
     companyGst: '27BBBBB5678C1Z6',
-    price: 272,
+    price: 85800,
     deliveryDate: '2026-07-12',
-    fileName: 'Indo_Pigments_TND001_Bid.pdf',
+    fileName: 'Western_Coil_AZ150_Bid.pdf',
     fileSize: '850 KB',
     submittedAt: '2026-05-25 08:34',
     status: 'Pending',
@@ -122,41 +131,40 @@ const INITIAL_SUBMISSIONS = [
   {
     id: 'SUB-403',
     tenderId: 'TND-2026-002',
-    vendorName: 'Apex Emulsion Ltd',
+    vendorName: 'Western Coil Coaters',
     companyGst: '27CCCCC9012D1Z7',
-    price: 140,
+    price: 94800,
     deliveryDate: '2026-06-25',
-    fileName: 'Apex_Emulsion_Proposal.pdf',
+    fileName: 'COLORBOND_Coil_Proposal.pdf',
     fileSize: '2.1 MB',
     submittedAt: '2026-05-25 09:50',
     status: 'Pending',
-    remarks: 'Includes sample testing clearance sheets.'
+    remarks: 'Includes paint system compliance and colour shade batch plan.'
   },
   {
     id: 'SUB-404',
     tenderId: 'TND-2026-004',
-    vendorName: 'Elite Plastics Inc',
+    vendorName: 'Surya Fasteners',
     companyGst: '27DDDDD3456E1Z8',
-    price: 82,
+    price: 16,
     deliveryDate: '2026-07-05',
-    fileName: 'Elite_Plastics_20L_Tender.pdf',
+    fileName: 'Durashine_Fastener_Kit_Tender.pdf',
     fileSize: '1.7 MB',
     submittedAt: '2026-05-25 10:02',
     status: 'Approved',
-    remarks: 'Custom screen printing setup included at no extra cost.'
+    remarks: 'Includes EPDM washer quality certificate and corrosion test report.'
   }
 ];
 
 const MOCK_NOTIFICATIONS = [
-  { id: 1, title: 'New Tender Published', message: 'TND-2026-006: Carbon Black (N330) is now open for bidding.', time: 'Just now', read: false },
-  { id: 2, title: 'Bid Approved', message: 'Your quotation for 20L HDPE Industrial Paint Pails has been APPROVED by Procurement Team.', time: '30 mins ago', read: false },
-  { id: 3, title: 'Price Competitiveness Alert', message: 'A competitor submitted a lower bid (₹265/KG) for Titanium Dioxide.', time: '1 hour ago', read: true }
+  { id: 1, title: 'New Tender Published', message: 'TND-2026-006: ECOBUILD Structural Steel Plate Lots is now open for bidding.', time: 'Just now', read: false },
+  { id: 2, title: 'Bid Approved', message: 'Your quotation for DURASHINE Roofing Fastener Kits has been APPROVED by Procurement Team.', time: '30 mins ago', read: false },
+  { id: 3, title: 'Price Competitiveness Alert', message: 'A competitor submitted a lower bid for AZ150 Al-Zn Coated Steel Coils.', time: '1 hour ago', read: true }
 ];
-
 // ==========================================
 // MAIN APP COMPONENT
 // ==========================================
-function App() {
+export default function App() {
   // Global States
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const [currentPage, setCurrentPage] = useState('home'); // home, about, auth, vendor-dashboard, hr-dashboard, bid-details, contact
@@ -174,7 +182,7 @@ function App() {
   // UI Control States
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
-    { sender: 'bot', text: 'Namaste! Welcome to Tata Colours Support Chat. How can I assist you with vendor enrollment, bidding procedures, or portals today?', time: '10:30 AM' }
+    { sender: 'bot', text: 'Namaste! Welcome to Tata Steel Colors Support Chat. How can I assist you with vendor enrollment, coated-steel sourcing, bidding procedures, or portals today?', time: '10:30 AM' }
   ]);
   const [chatInput, setChatInput] = useState('');
   
@@ -294,6 +302,19 @@ function App() {
     } catch { /* Silent fail */ }
   };
 
+  const apiCreateTender = async (tenderData) => {
+    try {
+      const res = await fetch(`${API_BASE}/tenders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tenderData)
+      });
+      return await res.json();
+    } catch {
+      return { success: false, error: 'Server connection failed' };
+    }
+  };
+
   const apiLogin = async (role, email, password) => {
     try {
       const res = await fetch(`${API_BASE}/auth/login`, {
@@ -320,7 +341,6 @@ function App() {
     }
   };
 
-
   // Dynamic Toast Renderer
   const ToastContainer = () => {
     if (!toast) return null;
@@ -331,19 +351,19 @@ function App() {
         : 'bg-rose-600 text-white';
 
     return (
-      <div class={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 animate-toast ${colorStyles}`}>
+      <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 animate-toast ${colorStyles}`}>
         <span>
           {toast.type === 'success' && (
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           )}
           {toast.type === 'warning' && (
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
           )}
           {toast.type === 'error' && (
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           )}
         </span>
-        <span class="font-medium tracking-wide">{toast.message}</span>
+        <span className="font-medium tracking-wide">{toast.message}</span>
       </div>
     );
   };
@@ -356,86 +376,86 @@ function App() {
   };
 
   return (
-    <div class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen flex flex-col justify-between overflow-x-hidden">
       
       {/* Animated Background Mesh */}
-      <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div class="absolute top-20 -left-20 w-[45rem] h-[45rem] rounded-full bg-tata-500/10 dark:bg-tata-500/5 blur-[120px] animate-mesh-1"></div>
-        <div class="absolute bottom-20 -right-20 w-[35rem] h-[35rem] rounded-full bg-indigo-500/10 dark:bg-indigo-950/20 blur-[100px] animate-mesh-2"></div>
-        <div class="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.04]"></div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-20 -left-20 w-[45rem] h-[45rem] rounded-full bg-tata-500/10 dark:bg-tata-500/5 blur-[120px] animate-mesh-1"></div>
+        <div className="absolute bottom-20 -right-20 w-[35rem] h-[35rem] rounded-full bg-indigo-500/10 dark:bg-indigo-950/20 blur-[100px] animate-mesh-2"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.04]"></div>
       </div>
 
       {/* Navigation Bar */}
-      <header class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/80 border-b border-slate-200/50 dark:border-slate-800/50 transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-20">
+      <header className="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-slate-900/80 border-b border-slate-200/50 dark:border-slate-800/50 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
             
             {/* Logo Section */}
-            <div class="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
-              <div class="relative w-11 h-11 bg-gradient-to-tr from-tata-700 to-tata-500 rounded-xl flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-lg shadow-tata-500/20">
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <div className="relative w-11 h-11 bg-gradient-to-tr from-tata-700 to-tata-500 rounded-xl flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-lg shadow-tata-500/20">
                 T
-                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900"></div>
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900"></div>
               </div>
               <div>
-                <span class="font-heading font-bold text-xl tracking-tight text-tata-700 dark:text-tata-300">TATA COLOURS</span>
-                <span class="block text-[10px] tracking-[0.2em] font-semibold text-slate-500 uppercase dark:text-slate-400">Procurement</span>
+                <span className="font-heading font-bold text-xl tracking-tight text-tata-700 dark:text-tata-300">TATA STEEL COLORS</span>
+                <span className="block text-[10px] tracking-[0.2em] font-semibold text-slate-500 uppercase dark:text-slate-400">Procurement</span>
               </div>
             </div>
 
             {/* Nav Links */}
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
-              <button onClick={() => setCurrentPage('home')} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'home' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Home</button>
-              <button onClick={() => setCurrentPage('about')} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'about' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>About Us</button>
+            <nav className="hidden md:flex items-center gap-8 font-medium text-sm">
+              <button onClick={() => setCurrentPage('home')} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'home' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Home</button>
+              <button onClick={() => setCurrentPage('about')} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'about' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>About Us</button>
               
               {currentUser && authRole === 'vendor' ? (
-                <button onClick={() => setCurrentPage('vendor-dashboard')} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'vendor-dashboard' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Vendor Dashboard</button>
+                <button onClick={() => setCurrentPage('vendor-dashboard')} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'vendor-dashboard' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Vendor Dashboard</button>
               ) : (
-                <button onClick={() => { setAuthRole('vendor'); setAuthMode('login'); setCurrentPage('auth'); }} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'auth' && authRole === 'vendor' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Vendor Portal</button>
+                <button onClick={() => { setAuthRole('vendor'); setAuthMode('login'); setCurrentPage('auth'); }} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'auth' && authRole === 'vendor' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Vendor Portal</button>
               )}
 
               {currentUser && authRole === 'hr' ? (
-                <button onClick={() => setCurrentPage('hr-dashboard')} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'hr-dashboard' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>HR Portal</button>
+                <button onClick={() => setCurrentPage('hr-dashboard')} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'hr-dashboard' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>HR Portal</button>
               ) : (
-                <button onClick={() => { setAuthRole('hr'); setAuthMode('login'); setCurrentPage('auth'); }} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'auth' && authRole === 'hr' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>HR Portal</button>
+                <button onClick={() => { setAuthRole('hr'); setAuthMode('login'); setCurrentPage('auth'); }} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'auth' && authRole === 'hr' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>HR Portal</button>
               )}
               
-              <button onClick={() => setCurrentPage('contact')} class={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'contact' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Contact</button>
+              <button onClick={() => setCurrentPage('contact')} className={`transition-colors py-2 px-1 border-b-2 ${currentPage === 'contact' ? 'text-tata-600 dark:text-tata-400 border-tata-600 dark:border-tata-400' : 'text-slate-600 hover:text-tata-600 dark:text-slate-300 dark:hover:text-tata-400 border-transparent'}`}>Contact</button>
             </nav>
 
             {/* Right controls */}
-            <div class="flex items-center gap-4">
+            <div className="flex items-center gap-4">
               {/* API Status Indicator */}
               <div
                 title={apiReady ? `Backend connected: ${API_BASE}` : 'Backend offline — start backend/start.bat to connect'}
-                class={`hidden sm:flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1.5 rounded-full border cursor-default select-none transition-all ${apiReady ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20'}`}
+                className={`hidden sm:flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1.5 rounded-full border cursor-default select-none transition-all ${apiReady ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20'}`}
               >
-                <span class={`w-1.5 h-1.5 rounded-full ${apiReady ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`}></span>
+                <span className={`w-1.5 h-1.5 rounded-full ${apiReady ? 'bg-emerald-500 animate-pulse' : 'bg-amber-400'}`}></span>
                 {apiReady ? 'API Online' : 'Demo Mode'}
               </div>
 
               {/* Theme Toggle */}
               <button 
                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} 
-                class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-sm"
                 aria-label="Toggle dark/light mode"
               >
                 {theme === 'light' ? (
-                  <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
                 ) : (
-                  <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                  <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                 )}
               </button>
 
               {/* Auth Action */}
               {currentUser ? (
-                <div class="flex items-center gap-3">
-                  <div class="hidden sm:block text-right">
-                    <span class="block font-semibold text-xs text-slate-800 dark:text-slate-200">{currentUser.vendorName || currentUser.username}</span>
-                    <span class="text-[10px] bg-tata-500/20 text-tata-700 dark:text-tata-300 font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">{authRole}</span>
+                <div className="flex items-center gap-3">
+                  <div className="hidden sm:block text-right">
+                    <span className="block font-semibold text-xs text-slate-800 dark:text-slate-200">{currentUser.vendorName || currentUser.username || currentUser.email}</span>
+                    <span className="text-[10px] bg-tata-500/20 text-tata-700 dark:text-tata-300 font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">{authRole}</span>
                   </div>
                   <button 
                     onClick={handleSignOut}
-                    class="px-4 py-2 border border-rose-500/40 hover:bg-rose-500/10 text-rose-500 font-semibold text-xs rounded-xl transition-all tracking-wider uppercase"
+                    className="px-4 py-2 border border-rose-500/40 hover:bg-rose-500/10 text-rose-500 font-semibold text-xs rounded-xl transition-all tracking-wider uppercase"
                   >
                     Log Out
                   </button>
@@ -443,7 +463,7 @@ function App() {
               ) : (
                 <button 
                   onClick={() => { setAuthRole('vendor'); setAuthMode('login'); setCurrentPage('auth'); }}
-                  class="px-5 py-2.5 bg-gradient-to-r from-tata-600 to-tata-500 hover:from-tata-700 hover:to-tata-600 text-white font-semibold text-xs rounded-xl shadow-lg shadow-tata-500/20 hover:shadow-tata-500/35 hover:-translate-y-0.5 transition-all tracking-wider uppercase"
+                  className="px-5 py-2.5 bg-gradient-to-r from-tata-600 to-tata-500 hover:from-tata-700 hover:to-tata-600 text-white font-semibold text-xs rounded-xl shadow-lg shadow-tata-500/20 hover:shadow-tata-500/35 hover:-translate-y-0.5 transition-all tracking-wider uppercase"
                 >
                   Portal Sign In
                 </button>
@@ -454,7 +474,7 @@ function App() {
       </header>
 
       {/* Main Content Router */}
-      <main class="flex-grow relative z-10">
+      <main className="flex-grow relative z-10">
         {currentPage === 'home' && (
           <LandingPage 
             setCurrentPage={setCurrentPage} 
@@ -540,9 +560,3 @@ function App() {
     </div>
   );
 }
-
-// ==========================================
-// INITIALIZATION & RENDER
-// ==========================================
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);

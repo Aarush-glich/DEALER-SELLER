@@ -1,8 +1,8 @@
 @echo off
-title Tata Colours API Server
+title Tata Steel Colors API Server
 echo.
 echo  ============================================================
-echo   Tata Colours Procurement Portal — Backend Server Launcher
+echo   Tata Steel Colors Backend Server Launcher
 echo  ============================================================
 echo.
 
@@ -15,7 +15,7 @@ if %ERRORLEVEL% == 0 (
         cd /d "%~dp0"
         npm install
     )
-    echo  Starting Express server on port 3001...
+    echo  Starting Express server on port 5000...
     echo.
     node "%~dp0server.js"
     goto :done

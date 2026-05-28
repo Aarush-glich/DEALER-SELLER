@@ -20,7 +20,7 @@ export default function ChatWidget({ chatOpen, setChatOpen, chatMessages, setCha
 
     // Automated responses mockup based on keyword queries
     setTimeout(() => {
-      let botReply = 'I apologize, I did not catch that. For urgent support, email procurement@tatacolours.com.';
+      let botReply = 'I apologize, I did not catch that. For urgent support, email contact@tatasteelcolors.com.';
       const inputLower = chatInput.toLowerCase();
 
       if (inputLower.includes('otp') || inputLower.includes('code')) {
@@ -30,7 +30,7 @@ export default function ChatWidget({ chatOpen, setChatOpen, chatMessages, setCha
       } else if (inputLower.includes('bid') || inputLower.includes('tender')) {
         botReply = 'Open tenders are visible in the Vendor Dashboard. Once you upload a quotation PDF, your price bid is registered.';
       } else if (inputLower.includes('hr') || inputLower.includes('admin')) {
-        botReply = 'The HR Portal login is restricted to Tata administrative personnel. Use email "hr@tatacolours.com" and password "hr123" to view the administrative dashboard.';
+        botReply = 'The sourcing desk login is restricted to Tata Steel Colors administrative personnel. Use email "sourcing@tatasteelcolors.com" and password "hr123" to view the sourcing dashboard.';
       }
 
       const botMsg = { sender: 'bot', text: botReply, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) };
@@ -46,10 +46,10 @@ export default function ChatWidget({ chatOpen, setChatOpen, chatMessages, setCha
           <div className="p-4 bg-gradient-to-r from-tata-600 to-tata-500 text-white flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-              <span className="text-xs font-bold uppercase tracking-wider">Tata Support Bot</span>
+              <span className="text-xs font-bold uppercase tracking-wider">Tata Steel Colors Bot</span>
             </div>
             <button onClick={() => setChatOpen(false)}>
-              <svg className="w-4 h-4 text-white/80 hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              <svg className="w-4 h-4 text-white/80 hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
           </div>
 
@@ -76,7 +76,7 @@ export default function ChatWidget({ chatOpen, setChatOpen, chatMessages, setCha
               className="flex-grow px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs focus:ring-1 focus:ring-tata-500 focus:outline-none" 
             />
             <button type="submit" className="p-2 bg-tata-500 text-white rounded-xl hover:bg-tata-600 transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
             </button>
           </form>
         </div>
@@ -89,7 +89,7 @@ export default function ChatWidget({ chatOpen, setChatOpen, chatMessages, setCha
         aria-label="Open support chat"
       >
         <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white dark:border-slate-950"></span>
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
       </button>
     </div>
   );

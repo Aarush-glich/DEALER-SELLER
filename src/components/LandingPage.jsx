@@ -13,10 +13,10 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
             Next-Gen Procurement System v2.6
           </div>
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white leading-tight tracking-tight">
-            Smart Raw Material Bidding Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-tata-600 to-tata-400 dark:from-tata-400 dark:to-tata-300">Tata Colours</span>
+            Coated Steel Vendor Bidding Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-tata-600 to-tata-400 dark:from-tata-400 dark:to-tata-300">Tata Steel Colors</span>
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-            Secure digital ecosystem for chemical, pigment, solvent, and packaging procurement. Ensure fair competition, real-time bid updates, transparent rankings, and automated HR approvals.
+            Secure digital ecosystem for coated steel, roofing, cladding, smart buildings, and solar mounting procurement. Ensure fair competition, real-time bid updates, transparent rankings, and automated sourcing approvals.
           </p>
           
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
@@ -25,7 +25,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
               className="px-8 py-3.5 bg-gradient-to-r from-tata-600 to-tata-500 hover:from-tata-700 hover:to-tata-600 text-white font-bold rounded-xl shadow-lg shadow-tata-500/25 hover:shadow-tata-500/35 hover:-translate-y-0.5 transition-all text-sm uppercase tracking-wide flex items-center gap-2"
             >
               Vendor Sign Up
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </button>
             <button 
               onClick={() => { setAuthRole('vendor'); setAuthMode('login'); setCurrentPage('auth'); }}
@@ -37,7 +37,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
               onClick={() => { setAuthRole('hr'); setAuthMode('login'); setCurrentPage('auth'); }}
               className="px-6 py-3.5 border border-indigo-500/20 hover:border-indigo-500/40 bg-indigo-500/5 hover:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl transition-all text-sm uppercase tracking-wide"
             >
-              HR Portal Login
+              Sourcing Desk Login
             </button>
           </div>
         </div>
@@ -73,8 +73,8 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
               <div className="space-y-3">
                 <div className="p-3 bg-white/40 dark:bg-slate-950/40 rounded-xl flex items-center justify-between border border-white/10">
                   <div>
-                    <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">Titanium Dioxide</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">TND-001 • 12,000 KG</span>
+                    <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">AZ150 Al-Zn Coils</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400">TND-001 - 1,200 MT</span>
                   </div>
                   <div className="text-right">
                     <span className="block text-xs font-bold text-emerald-600 dark:text-emerald-400">₹{tenders[0]?.lowestBid}/KG</span>
@@ -83,11 +83,11 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
                 </div>
                 <div className="p-3 bg-white/40 dark:bg-slate-950/40 rounded-xl flex items-center justify-between border border-white/10">
                   <div>
-                    <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">Butyl Acetate</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400">TND-005 • 8,000 Liters</span>
+                    <span className="block text-xs font-bold text-slate-800 dark:text-slate-100">ILIOS Mount Sections</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400">TND-005 - 420 MT</span>
                   </div>
                   <div className="text-right">
-                    <span className="block text-xs font-bold text-emerald-600 dark:text-emerald-400">₹{tenders[4]?.lowestBid}/Ltr</span>
+                    <span className="block text-xs font-bold text-emerald-600 dark:text-emerald-400">₹{tenders[4]?.lowestBid}/MT</span>
                     <span className="text-[9px] text-slate-400">{tenders[4]?.lowestBidder}</span>
                   </div>
                 </div>
@@ -128,13 +128,13 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-semibold text-tata-500 uppercase tracking-widest">Enterprise Features</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-slate-900 dark:text-white">Built for High-Stakes Industrial Sourcing</h2>
-          <p className="text-slate-500 dark:text-slate-400 font-light">Tata Colours Procurement Hub utilizes state-of-the-art bidding workflows modeled after global ERP standards.</p>
+          <p className="text-slate-500 dark:text-slate-400 font-light">Tata Steel Colors Procurement Hub utilizes state-of-the-art bidding workflows modeled after global ERP standards.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-all space-y-4">
             <div className="w-12 h-12 rounded-xl bg-tata-500/10 text-tata-600 dark:bg-tata-500/20 dark:text-tata-400 flex items-center justify-center">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">Real-Time Tickers</h3>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
@@ -144,7 +144,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
 
           <div className="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-all space-y-4">
             <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400 flex items-center justify-center">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             </div>
             <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">Transparent Rankings</h3>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
@@ -154,7 +154,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
 
           <div className="p-8 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-all space-y-4">
             <div className="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400 flex items-center justify-center">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <h3 className="font-heading font-bold text-xl text-slate-900 dark:text-white">Secure Procurement</h3>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
@@ -170,7 +170,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-6 rounded-2xl bg-white/40 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/50 space-y-4">
             <p className="text-slate-600 dark:text-slate-300 italic text-sm leading-relaxed">
-              "Sourcing logistics with Tata Colours has never been this smooth. The live bidding timers keep the ecosystem highly transparent, and we are able to manage and upload bulk quotations effortlessly."
+              "Sourcing logistics with Tata Steel Colors has never been this smooth. The live bidding timers keep the ecosystem highly transparent, and we are able to manage and upload bulk quotations effortlessly."
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-tata-500 flex items-center justify-center text-white font-bold text-sm">
@@ -178,14 +178,14 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
               </div>
               <div>
                 <span className="block text-xs font-bold text-slate-900 dark:text-white">Amit Goenka</span>
-                <span className="text-[10px] text-slate-400">Managing Director, Aura Fine Chem</span>
+                <span className="text-[10px] text-slate-400">Director, Maharashtra Steel Service Centre</span>
               </div>
             </div>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/40 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/50 space-y-4">
             <p className="text-slate-600 dark:text-slate-300 italic text-sm leading-relaxed">
-              "The HR & Procurement portal allows our team to check bid rankings and submit revised prices instantly. The automated notifications ensure we never miss a paint chemical tender."
+              "The sourcing portal allows our team to check bid rankings and submit revised prices instantly. The automated notifications ensure we never miss a coated steel or accessories tender."
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-sm">
@@ -193,7 +193,7 @@ export default function LandingPage({ setCurrentPage, setAuthRole, setAuthMode, 
               </div>
               <div>
                 <span className="block text-xs font-bold text-slate-900 dark:text-white">Rajesh Mehta</span>
-                <span className="text-[10px] text-slate-400">Head Sourcing, Elite Plastics Inc</span>
+                <span className="text-[10px] text-slate-400">Head Sourcing, Surya Fasteners</span>
               </div>
             </div>
           </div>

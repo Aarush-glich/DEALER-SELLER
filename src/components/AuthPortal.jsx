@@ -30,9 +30,9 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
       if (res.success) {
         setCurrentUser(res.user);
         setCurrentPage('hr-dashboard');
-        triggerToast('HR Administrative session authenticated.');
+        triggerToast('Sourcing desk session authenticated.');
       } else {
-        triggerToast(res.error || 'Invalid HR credentials. (Use hr@tatacolours.com / hr123)', 'error');
+        triggerToast(res.error || 'Invalid sourcing desk credentials. (Use sourcing@tatasteelcolors.com / hr123)', 'error');
       }
     } else {
       // Vendor Login via API
@@ -112,10 +112,10 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
       } else {
         // Mock fallback if states somehow are empty
         const newUser = {
-          companyName: companyName || 'Aura Fine Chem',
-          vendorName: vendorName || 'Amit Goenka',
+          companyName: companyName || 'Maharashtra Steel Service Centre',
+          vendorName: vendorName || 'Rajiv Sharma',
           gstNumber: gstNumber || '27AAAAA1234B1Z5',
-          email: email || 'procure@aurachem.in',
+          email: email || 'sales@mahasteelservice.in',
           phone: phoneNumber || '+91 99887 76655'
         };
         setCurrentUser(newUser);
@@ -144,7 +144,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
               onClick={() => { setAuthRole('hr'); setAuthMode('login'); }}
               className={`flex-grow py-2 text-xs font-bold uppercase rounded-lg tracking-wider transition-all ${authRole === 'hr' ? 'bg-white dark:bg-slate-900 text-tata-600 dark:text-tata-400 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
             >
-              HR Portal
+              Sourcing Desk
             </button>
           </div>
         )}
@@ -156,8 +156,8 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
             {authRole === 'hr' 
-              ? 'Access the internal administrative procurement desk.'
-              : 'Tata Colours Secure Vendor Gateway.'}
+              ? 'Access the internal sourcing and procurement desk.'
+              : 'Tata Steel Colors Secure Vendor Gateway.'}
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
               <input 
                 type="email" 
                 required 
-                placeholder={authRole === 'hr' ? 'hr@tata.com' : 'vendor@aurachem.com'}
+                placeholder={authRole === 'hr' ? 'sourcing@tatasteelcolors.com' : 'vendor@demo.com'}
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 focus:outline-none focus:ring-2 focus:ring-tata-500 text-sm"
@@ -183,7 +183,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
               <input 
                 type="password" 
                 required 
-                placeholder={authRole === 'hr' ? 'admin123' : '••••••••'}
+                placeholder={authRole === 'hr' ? 'hr123' : 'demo123'}
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 focus:outline-none focus:ring-2 focus:ring-tata-500 text-sm"
@@ -213,7 +213,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
               <div className="space-y-1">
                 <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Company Name</label>
                 <input 
-                  type="text" required placeholder="e.g. Aura Fine Chem" value={companyName} onChange={e => setCompanyName(e.target.value)}
+                  type="text" required placeholder="e.g. Maharashtra Steel Service Centre" value={companyName} onChange={e => setCompanyName(e.target.value)}
                   className="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-xs focus:ring-2 focus:ring-tata-500 focus:outline-none"
                 />
               </div>
@@ -229,7 +229,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
             <div className="space-y-1">
               <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Representative Name</label>
               <input 
-                type="text" required placeholder="e.g. Amit Goenka" value={vendorName} onChange={e => setVendorName(e.target.value)}
+                type="text" required placeholder="e.g. Rajiv Sharma" value={vendorName} onChange={e => setVendorName(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-xs focus:ring-2 focus:ring-tata-500 focus:outline-none"
               />
             </div>
@@ -237,7 +237,7 @@ export default function AuthPortal({ authMode, setAuthMode, authRole, setAuthRol
             <div className="space-y-1">
               <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">Official Email</label>
               <input 
-                type="email" required placeholder="procure@aurachem.in" value={email} onChange={e => setEmail(e.target.value)}
+                type="email" required placeholder="sales@mahasteelservice.in" value={email} onChange={e => setEmail(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 text-xs focus:ring-2 focus:ring-tata-500 focus:outline-none"
               />
             </div>
