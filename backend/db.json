@@ -8,10 +8,17 @@
       "quantity": 1200,
       "unit": "MT",
       "requiredDate": "2026-07-15",
+<<<<<<< HEAD
       "basePrice": 86500,
       "lowestBid": 84548,
       "lowestBidder": "SolarMount Fabricators",
       "closingSeconds": 33850,
+=======
+      "basePrice": 280,
+      "lowestBid": 265,
+      "lowestBidder": "Aura Fine Chem",
+      "closingSeconds": 43160,
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       "status": "Open"
     },
     {
@@ -22,10 +29,17 @@
       "quantity": 850,
       "unit": "MT",
       "requiredDate": "2026-06-30",
+<<<<<<< HEAD
       "basePrice": 96500,
       "lowestBid": 94167,
       "lowestBidder": "Western Coil Coaters",
       "closingSeconds": 77050,
+=======
+      "basePrice": 145,
+      "lowestBid": 140,
+      "lowestBidder": "Apex Emulsion Ltd",
+      "closingSeconds": 86360,
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       "status": "Open"
     },
     {
@@ -36,10 +50,17 @@
       "quantity": 620,
       "unit": "MT",
       "requiredDate": "2026-08-01",
+<<<<<<< HEAD
       "basePrice": 74200,
       "lowestBid": 72447,
       "lowestBidder": "Precision Rollform Components",
       "closingSeconds": 163450,
+=======
+      "basePrice": 620,
+      "lowestBid": 595,
+      "lowestBidder": "Kroma Color Corp",
+      "closingSeconds": 172760,
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       "status": "Open"
     },
     {
@@ -50,11 +71,19 @@
       "quantity": 150000,
       "unit": "PCS",
       "requiredDate": "2026-07-10",
+<<<<<<< HEAD
       "basePrice": 18,
       "lowestBid": 13,
       "lowestBidder": "SolarMount Fabricators",
       "closingSeconds": 0,
       "status": "Closed"
+=======
+      "basePrice": 85,
+      "lowestBid": 82,
+      "lowestBidder": "Elite Plastics Inc",
+      "closingSeconds": 14960,
+      "status": "Open"
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     },
     {
       "id": "TND-2026-005",
@@ -64,11 +93,19 @@
       "quantity": 420,
       "unit": "MT",
       "requiredDate": "2026-07-01",
+<<<<<<< HEAD
       "basePrice": 78500,
       "lowestBid": 76989,
       "lowestBidder": "Maharashtra Steel Service Centre",
       "closingSeconds": 0,
       "status": "Closed"
+=======
+      "basePrice": 195,
+      "lowestBid": 188,
+      "lowestBidder": "Hindustan Solvents",
+      "closingSeconds": 5160,
+      "status": "Open"
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     },
     {
       "id": "TND-2026-006",
@@ -78,16 +115,54 @@
       "quantity": 540,
       "unit": "MT",
       "requiredDate": "2026-07-22",
+<<<<<<< HEAD
       "basePrice": 71500,
       "lowestBid": 70295,
       "lowestBidder": "Maharashtra Steel Service Centre",
       "closingSeconds": 0,
       "status": "Closed"
+=======
+      "basePrice": 110,
+      "lowestBid": 99,
+      "lowestBidder": "Zenith Chemicals",
+      "closingSeconds": 2160,
+      "status": "Open"
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     }
   ],
   "submissions": [
     {
+<<<<<<< HEAD
       "id": "SUB-BOT-8090",
+=======
+      "id": "SUB-BOT-296213",
+      "tenderId": "TND-2026-006",
+      "vendorName": "Zenith Chemicals",
+      "companyGst": "27BOT6888Z1Z2",
+      "price": 99,
+      "deliveryDate": "2026-07-22",
+      "fileName": "Quotation_Zenith_Chemicals.pdf",
+      "fileSize": "1.1 MB",
+      "submittedAt": "2026-05-26 07:11",
+      "status": "Pending",
+      "remarks": "Competitive quote via auto-tender gateway."
+    },
+    {
+      "id": "SUB-BOT-281190",
+      "tenderId": "TND-2026-006",
+      "vendorName": "Hindustan Solvents",
+      "companyGst": "27BOT3726Z1Z2",
+      "price": 101,
+      "deliveryDate": "2026-07-22",
+      "fileName": "Quotation_Hindustan_Solvents.pdf",
+      "fileSize": "1.1 MB",
+      "submittedAt": "2026-05-26 07:11",
+      "status": "Pending",
+      "remarks": "Competitive quote via auto-tender gateway."
+    },
+    {
+      "id": "SUB-401",
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       "tenderId": "TND-2026-001",
       "vendorName": "SolarMount Fabricators",
       "companyGst": "27BOT1004Z1Z2",
@@ -2749,9 +2824,29 @@
   ],
   "notifications": [
     {
+<<<<<<< HEAD
       "id": 1779946228142,
       "title": "Competitor Bid Alert",
       "message": "SolarMount Fabricators placed INR 84548/MT on AZ150 Al-Zn Coated Steel Coils.",
+=======
+      "id": 1779779516432,
+      "title": "Competitor Bid Alert",
+      "message": "Zenith Chemicals placed ₹99/KG on Carbon Black (Grade N330).",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779779501409,
+      "title": "Competitor Bid Alert",
+      "message": "Hindustan Solvents placed ₹101/KG on Carbon Black (Grade N330).",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1,
+      "title": "New Tender Published",
+      "message": "TND-2026-006: Carbon Black (N330) is now open for bidding.",
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       "time": "Just now",
       "read": false
     },
@@ -2763,6 +2858,7 @@
       "read": false
     },
     {
+<<<<<<< HEAD
       "id": 1779946213022,
       "title": "Competitor Bid Alert",
       "message": "Precision Rollform Components placed INR 72447/MT on High Tensile Steel for LYSAGHT Purlins.",
@@ -3097,6 +3193,13 @@
       "message": "Apex Structural Systems placed INR 84616/MT on AZ150 Al-Zn Coated Steel Coils.",
       "time": "Just now",
       "read": false
+=======
+      "id": 3,
+      "title": "Price Competitiveness Alert",
+      "message": "A competitor submitted a lower bid (₹265/KG) for Titanium Dioxide.",
+      "time": "1 hour ago",
+      "read": true
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     }
   ]
 }

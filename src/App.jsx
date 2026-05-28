@@ -9,7 +9,11 @@ import ContactPage from './components/ContactPage.jsx';
 import Footer from './components/Footer.jsx';
 import ChatWidget from './components/ChatWidget.jsx';
 
+<<<<<<< HEAD
 const API_BASE = 'http://localhost:5000/api';
+=======
+const API_BASE = 'http://localhost:3001/api';
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
 
 // ==========================================
 // INITIAL DUMMY DATABASE STATE
@@ -397,7 +401,11 @@ export default function App() {
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900"></div>
               </div>
               <div>
+<<<<<<< HEAD
                 <span className="font-heading font-bold text-xl tracking-tight text-tata-700 dark:text-tata-300">TATA STEEL COLORS</span>
+=======
+                <span className="font-heading font-bold text-xl tracking-tight text-tata-700 dark:text-tata-300">TATA COLOURS</span>
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
                 <span className="block text-[10px] tracking-[0.2em] font-semibold text-slate-500 uppercase dark:text-slate-400">Procurement</span>
               </div>
             </div>

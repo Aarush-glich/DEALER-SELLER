@@ -72,16 +72,26 @@ export default function HRDashboard({ currentUser, tenders, setTenders, submissi
   const recommendedVendors = useMemo(() => {
     if (!currentCompareTender) return [];
     return [
+<<<<<<< HEAD
       { name: 'Western Coil Coaters', rating: 4.8, compatibility: 96, matchReason: 'Lowest delivery lead time (5 days), ISO 9001 certified supplier.' },
       { name: 'Maharashtra Steel Service Centre', rating: 4.6, compatibility: 91, matchReason: 'Historically lowest pricing trends with 98% quality compliance.' },
       { name: 'Precision Rollform Components', rating: 4.2, compatibility: 84, matchReason: 'Roll-forming capacity and regional dispatch network reduce freight variance.' }
+=======
+      { name: 'Apex Emulsion Ltd', rating: 4.8, compatibility: 96, matchReason: 'Lowest delivery lead time (5 days), ISO 9001 certified supplier.' },
+      { name: 'Aura Fine Chem', rating: 4.6, compatibility: 91, matchReason: 'Historically lowest pricing trends with 98% quality compliance.' },
+      { name: 'Indo pigment Traders', rating: 4.2, compatibility: 84, matchReason: 'Proximity to Mundra factory reduces freight charges.' }
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     ];
   }, [currentCompareTender]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       
+<<<<<<< HEAD
       {/* Dashboard Title & Top sourcing navigation */}
+=======
+      {/* Dashboard Title & Top HR navigation */}
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-200/50 dark:border-slate-800/50 pb-6">
         <div>
           <h1 className="font-heading font-extrabold text-3xl text-slate-900 dark:text-white">Procurement & Sourcing Desk</h1>
@@ -307,11 +317,19 @@ export default function HRDashboard({ currentUser, tenders, setTenders, submissi
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-850 text-xs">
                 {[
+<<<<<<< HEAD
                   { name: 'Western Coil Coaters', contracts: 28, delivery: '98.4%', quality: '99.1%', stars: 5, status: 'Elite Tier' },
                   { name: 'Maharashtra Steel Service Centre', contracts: 19, delivery: '94.2%', quality: '97.8%', stars: 4.5, status: 'Premium Tier' },
                   { name: 'Surya Fasteners', contracts: 14, delivery: '96.0%', quality: '95.5%', stars: 4.2, status: 'Premium Tier' },
                   { name: 'Precision Rollform Components', contracts: 22, delivery: '89.5%', quality: '94.0%', stars: 3.8, status: 'Eligible Tier' },
                   { name: 'SolarMount Fabricators', contracts: 7, delivery: '92.1%', quality: '98.0%', stars: 4.0, status: 'Eligible Tier' }
+=======
+                  { name: 'Apex Emulsion Ltd', contracts: 28, delivery: '98.4%', quality: '99.1%', stars: 5, status: 'Elite Tier' },
+                  { name: 'Aura Fine Chem', contracts: 19, delivery: '94.2%', quality: '97.8%', stars: 4.5, status: 'Premium Tier' },
+                  { name: 'Elite Plastics Inc', contracts: 14, delivery: '96.0%', quality: '95.5%', stars: 4.2, status: 'Premium Tier' },
+                  { name: 'Indo pigment Traders', contracts: 22, delivery: '89.5%', quality: '94.0%', stars: 3.8, status: 'Eligible Tier' },
+                  { name: 'Kroma Color Corp', contracts: 7, delivery: '92.1%', quality: '98.0%', stars: 4.0, status: 'Eligible Tier' }
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
                 ].map((v, idx) => (
                   <tr key={idx} className="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
                     <td className="p-4 font-bold text-slate-900 dark:text-white">{v.name}</td>
@@ -348,6 +366,7 @@ export default function HRDashboard({ currentUser, tenders, setTenders, submissi
               <svg className="w-40 h-40" viewBox="0 0 36 36">
                 <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e2e8f0" strokeWidth="3" className="dark:stroke-slate-800"></circle>
                 
+<<<<<<< HEAD
                 {/* Segment 1: Coated Steel (45%) */}
                 <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0066b2" strokeWidth="4.2" strokeDasharray="45 55" strokeDashoffset="100"></circle>
                 {/* Segment 2: Building Products (25%) */}
@@ -355,15 +374,31 @@ export default function HRDashboard({ currentUser, tenders, setTenders, submissi
                 {/* Segment 3: Solar Mounting (20%) */}
                 <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" strokeWidth="3.5" strokeDasharray="20 80" strokeDashoffset="30"></circle>
                 {/* Segment 4: Accessories (10%) */}
+=======
+                {/* Segment 1: Chemicals (45%) */}
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0066b2" strokeWidth="4.2" strokeDasharray="45 55" strokeDashoffset="100"></circle>
+                {/* Segment 2: Solvents (25%) */}
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#10b981" strokeWidth="3.5" strokeDasharray="25 75" strokeDashoffset="55"></circle>
+                {/* Segment 3: Pigments (20%) */}
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#f59e0b" strokeWidth="3.5" strokeDasharray="20 80" strokeDashoffset="30"></circle>
+                {/* Segment 4: Packaging (10%) */}
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
                 <circle cx="18" cy="18" r="15.915" fill="none" stroke="#6366f1" strokeWidth="3.5" strokeDasharray="10 90" strokeDashoffset="10"></circle>
               </svg>
               
               {/* Legend inside pie mockup */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-2 text-[10px]">
+<<<<<<< HEAD
                 <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-tata-500"></span> Coated Steel (45%)</div>
                 <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-emerald-500"></span> Building Products (25%)</div>
                 <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-amber-500"></span> Solar Mounting (20%)</div>
                 <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-indigo-500"></span> Accessories (10%)</div>
+=======
+                <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-tata-500"></span> Chemicals (45%)</div>
+                <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-emerald-500"></span> Solvents (25%)</div>
+                <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-amber-500"></span> Pigments (20%)</div>
+                <div className="flex items-center gap-1.5 font-bold"><span className="w-2.5 h-2.5 rounded bg-indigo-500"></span> Packaging (10%)</div>
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
               </div>
             </div>
           </div>

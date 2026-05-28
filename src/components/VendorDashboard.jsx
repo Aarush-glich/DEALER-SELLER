@@ -81,7 +81,11 @@ export default function VendorDashboard({ currentUser, tenders, setTenders, subm
     const newSubmission = {
       id: newSubId,
       tenderId: tender.id,
+<<<<<<< HEAD
       vendorName: currentUser?.companyName || 'Maharashtra Steel Service Centre',
+=======
+      vendorName: currentUser?.companyName || 'Aura Fine Chem',
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       companyGst: currentUser?.gstNumber || '',
       price: price,
       deliveryDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 15 days from now
@@ -89,7 +93,11 @@ export default function VendorDashboard({ currentUser, tenders, setTenders, subm
       fileSize: `${(uploadedFile.size / (1024 * 1024)).toFixed(1)} MB`,
       submittedAt: new Date().toISOString().replace('T', ' ').substring(0, 16),
       status: 'Pending',
+<<<<<<< HEAD
       remarks: 'Bid submitted via Tata Steel Colors Vendor Panel.'
+=======
+      remarks: 'Bid submitted via Tata Colours Vendor Panel.'
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
     };
 
     setSubmissions(prev => [newSubmission, ...prev]);
@@ -98,13 +106,21 @@ export default function VendorDashboard({ currentUser, tenders, setTenders, subm
     if (onBidSubmit) {
       onBidSubmit({
         tenderId: tender.id,
+<<<<<<< HEAD
         vendorName: currentUser?.companyName || 'Maharashtra Steel Service Centre',
+=======
+        vendorName: currentUser?.companyName || 'Aura Fine Chem',
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
         companyGst: currentUser?.gstNumber || '',
         price: price,
         deliveryDate: newSubmission.deliveryDate,
         fileName: uploadedFile.name,
         fileSize: `${(uploadedFile.size / (1024 * 1024)).toFixed(1)} MB`,
+<<<<<<< HEAD
         remarks: 'Bid submitted via Tata Steel Colors Vendor Panel.'
+=======
+        remarks: 'Bid submitted via Tata Colours Vendor Panel.'
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
       });
     }
 
@@ -112,7 +128,11 @@ export default function VendorDashboard({ currentUser, tenders, setTenders, subm
     if (price < tender.lowestBid) {
       setTenders(prev => prev.map(t => {
         if (t.id === tender.id) {
+<<<<<<< HEAD
           return { ...t, lowestBid: price, lowestBidder: currentUser?.companyName || 'Maharashtra Steel Service Centre' };
+=======
+          return { ...t, lowestBid: price, lowestBidder: currentUser?.companyName || 'Aura Fine Chem' };
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
         }
         return t;
       }));
@@ -140,7 +160,11 @@ export default function VendorDashboard({ currentUser, tenders, setTenders, subm
         
         {/* Quick Filter buttons */}
         <div className="flex flex-wrap gap-2">
+<<<<<<< HEAD
           {['All', 'Coated Steel', 'Building Products', 'Accessories', 'Solar Mounting', 'Pre-Engineered Buildings'].map(cat => (
+=======
+          {['All', 'Chemicals', 'Pigments', 'Packaging Materials', 'Industrial Solvents'].map(cat => (
+>>>>>>> 3d70e01be78667d6be6c177f2842b4d6a453aceb
             <button
               key={cat}
               onClick={() => setFilterCategory(cat)}
